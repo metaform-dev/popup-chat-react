@@ -15,7 +15,8 @@
     "clean": "nwb clean-module && nwb clean-demo",
     "lint": "eslint src demo/src",
     "start": "nwb serve-react-demo",
-    "gh:publish": "nwb build-demo && gh-pages -d demo/dist"
+    "gh:publish": "nwb build-demo && gh-pages -d demo/dist",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "classnames": "^2.2.6",
