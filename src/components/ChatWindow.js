@@ -19,12 +19,16 @@ function ChatWindow(props) {
     pinMessage,
 	  onPinMessage,
     placeholder,
+    isAuth,
+    AuthButton
   } = props;
 
   const {
     teamName,
     imageUrl,
   } = agentProfile;
+
+  const AuthB = AuthButton;
 
   return (
     <div className={classNames('sc-chat-window', { 'opened': isOpen }, { 'closed': !isOpen })}>
@@ -34,20 +38,25 @@ function ChatWindow(props) {
         onClose={onClose}
       />
 
-      {pinMessage && <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} />}
+      {isAuth ?
+        (<>
+          {pinMessage && <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} />}
 
-      <MessageList
-        messages={messageList}
-        imageUrl={imageUrl}
-      />
+          <MessageList
+            messages={messageList}
+            imageUrl={imageUrl}
+          />
 
-      <UserInput
-        onSubmit={onUserInputSubmit}
-        onFilesSelected={onFilesSelected}
-        showEmoji={showEmoji}
-        fileUpload={fileUpload}
-        placeholder={placeholder}
-      />
+          <UserInput
+            onSubmit={onUserInputSubmit}
+            onFilesSelected={onFilesSelected}
+            showEmoji={showEmoji}
+            fileUpload={fileUpload}
+            placeholder={placeholder}
+          />
+        </>) :
+        (<div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}><AuthB /></div>)
+      }
     </div>
   );
 }

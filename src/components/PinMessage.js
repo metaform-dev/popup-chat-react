@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import defaultImage from '../assets/image.png';
 
 function PinMessage({ pinMessage, onPinMessage }) {
-  const image = propOr(defaultImage, 'imageUrl', pinMessage);
   const title = pipe(
     prop('title'),
     ifElse(
@@ -23,16 +22,11 @@ function PinMessage({ pinMessage, onPinMessage }) {
   )(pinMessage);
 
   return (
-    <div className='sc-pin--message' onClick={() => onPinMessage(pinMessage)}>
-      <img
-        className='sc-pin--message--img'
-        src={image}
-        alt=""
-      />
+    <div className='sc-pin--message' >
       <div className='sc-pin--message--desc'>
         <div className='sc-pin--message--title'>{title}</div>
-        <div>{text}</div>
       </div>
+      <button style={{float:"right", height:"40px", width:"120px", cursor:"pointer", color:"white", borderRadius:"10px", fontSize:"8px", fontWeight:700,fontFamily:'Ubuntu', backgroundColor:"#459BFF", border:"solid 0px"}} onClick={() => onPinMessage(pinMessage)}>+ Create Ticket</button>
     </div>
   );
 }

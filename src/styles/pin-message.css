@@ -1,8 +1,9 @@
 .sc-pin--message {
   display: flex;
-  padding: 5px;
+  padding: 10px;
   background-color: #f4f7f9;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .sc-pin--message--img {

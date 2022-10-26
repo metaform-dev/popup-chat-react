@@ -16,6 +16,8 @@ function Demo() {
     fileUpload: false,
   });
 
+  const authButton = () => <button>Login in</button>
+
   function onMessageWasSent(message) {
     setState(state => ({
       ...state,
@@ -97,6 +99,8 @@ function Demo() {
         }}
         onPinMessage={value => console.log(value)}
         placeholder='placeholder'
+        isAuth={true}
+        AuthButton={authButton}
       />
 
       <img className="demo-monster-img" src={monsterImgUrl} />

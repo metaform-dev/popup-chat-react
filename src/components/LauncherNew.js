@@ -22,6 +22,8 @@ function LauncherNew(props) {
     pinMessage,
 	  onPinMessage,
     placeholder,
+    isAuth,
+    AuthButton
   } = props;
 
   const defaultState = {
@@ -102,6 +104,8 @@ function LauncherNew(props) {
         pinMessage={pinMessage}
 		    onPinMessage={onPinMessage}
         placeholder={placeholder}
+        isAuth={isAuth}
+        AuthButton={AuthButton}
 	    />
     </div>
   );
