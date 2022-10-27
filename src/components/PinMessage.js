@@ -26,7 +26,7 @@ function PinMessage({ pinMessage, onPinMessage }) {
       <div className='sc-pin--message--desc'>
         <div className='sc-pin--message--title'>{title}</div>
       </div>
-      <button style={{float:"right", height:"40px", width:"120px", cursor:"pointer", color:"white", borderRadius:"10px", fontSize:"8px", fontWeight:700,fontFamily:'Ubuntu', backgroundColor:"#459BFF", border:"solid 0px"}} onClick={() => onPinMessage(pinMessage)}>+ Create Ticket</button>
+      <button style={{float:"right", height:"40px", width:"120px", cursor:"pointer", color:"white", borderRadius:"10px", fontSize:"14px", fontWeight:700,fontFamily:'Ubuntu', backgroundColor:"#459BFF", border:"solid 0px"}} onClick={() => onPinMessage(pinMessage)}>+ Create Ticket</button>
     </div>
   );
 }
