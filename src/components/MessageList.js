@@ -6,7 +6,7 @@ const renderreplyNote = (message) => {
   if (message.author == "me") {
     return <div style ={{color:"darkgray", fontSize:12, textAlign:"center", marginTop:20}}>--- We will reply to you as soon as possible ---</div>
   }
-+}
+}
 
 function MessageList(props) {
   const element = useRef(null);
