@@ -12,6 +12,7 @@ function ChatWindow(props) {
     onClose,
     agentProfile,
     messageProfile,
+    launcherProfile,
     showEmoji,
     fileUpload,
     messageList,
