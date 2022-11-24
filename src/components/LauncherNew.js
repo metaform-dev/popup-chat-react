@@ -14,6 +14,8 @@ function LauncherNew(props) {
     mute,
 	  showEmoji,
 	  agentProfile,
+    launcherProfile,
+    messageProfile,
 	  messageList,
 	  newMessagesCount,
 	  onMessageWasSent,
@@ -25,6 +27,11 @@ function LauncherNew(props) {
     isAuth,
     AuthButton
   } = props;
+
+  const {
+    openIconUrl,
+    closeIconUrl,
+  } = launcherProfile;
 
   const defaultState = {
 	  isOpen: false,
@@ -88,8 +95,8 @@ function LauncherNew(props) {
     <div id="sc-launcher">
 	    <div className={classNames('sc-launcher', { 'opened': state.isOpen })} onClick={handleClick}>
 		    <MessageCount count={newMessagesCount} isOpen={state.isOpen} />
-		    <img className={'sc-open-icon'} src={launcherIconActive} />
-		    <img className={'sc-closed-icon'} src={launcherIcon} />
+		    <img className={'sc-open-icon'} src={openIconUrl} />
+		    <img className={'sc-closed-icon'} src={closeIconUrl} />
 	    </div>
 
 	    <ChatWindow
@@ -97,6 +104,7 @@ function LauncherNew(props) {
 		    onUserInputSubmit={onMessageWasSent}
 		    onFilesSelected={onFilesSelected}
 		    agentProfile={agentProfile}
+        messageProfile={messageProfile}
 		    isOpen={state.isOpen}
 		    onClose={onClick}
 		    showEmoji={showEmoji}

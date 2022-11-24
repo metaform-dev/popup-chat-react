@@ -11,6 +11,7 @@ function ChatWindow(props) {
     isOpen,
     onClose,
     agentProfile,
+    messageProfile,
     showEmoji,
     fileUpload,
     messageList,
@@ -44,7 +45,7 @@ function ChatWindow(props) {
 
           <MessageList
             messages={messageList}
-            imageUrl={imageUrl}
+            messageProfile={messageProfile}
           />
 
           <UserInput

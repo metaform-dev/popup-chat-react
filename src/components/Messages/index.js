@@ -4,9 +4,16 @@ import classNames from 'classnames';
 import TextMessage from './TextMessage';
 import EmojiMessage from './EmojiMessage';
 import FileMessage from './FileMessage';
-import chatIconUrl from './../../assets/chat-icon.svg';
 
-function Message({ message }) {
+function Message(props) {
+  const {
+    message, messageProfile
+  } = props;
+
+  const {
+    chatIconUrl,
+  } = messageProfile;
+
   const type = prop('type', message);
   const author = prop('author', message);
   const me = equals(author, 'me');

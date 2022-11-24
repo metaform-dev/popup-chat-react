@@ -11,6 +11,9 @@ const renderreplyNote = (message) => {
 }
 
 function MessageList(props) {
+  const {
+    messages, messageProfile
+  } = props;
   const element = useRef(null);
   const elementCurrent = prop('current', element);
 
@@ -22,8 +25,8 @@ function MessageList(props) {
 
   return (
     <div className="sc-message-list" ref={element}>
-      {props.messages.map((message, i) => <Message message={message} key={i} />)}
-      {renderreplyNote(props.messages.at(-1))}
+      {messages.map((message, i) => <Message message={message} messageProfile={messageProfile} key={i} />)}
+      {renderreplyNote(messages.at(-1))}
     </div>
   );
 }
