@@ -95,8 +95,8 @@ function LauncherNew(props) {
     <div id="sc-launcher">
 	    <div className={classNames('sc-launcher', { 'opened': state.isOpen })} onClick={handleClick}>
 		    <MessageCount count={newMessagesCount} isOpen={state.isOpen} />
-		    <img className={'sc-open-icon'} src={openIconUrl} />
-		    <img className={'sc-closed-icon'} src={closeIconUrl} />
+		    <img className={'sc-open-icon'} src={closeIconUrl} />
+		    <img className={'sc-closed-icon'} src={openIconUrl} />
 	    </div>
 
 	    <ChatWindow
