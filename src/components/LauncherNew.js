@@ -22,6 +22,7 @@ function LauncherNew(props) {
     pinMessage,
 	  onPinMessage,
     placeholder,
+    autoReplyNote,
     isAuth,
     AuthButton
   } = props;
@@ -111,6 +112,7 @@ function LauncherNew(props) {
         pinMessage={pinMessage}
 		    onPinMessage={onPinMessage}
         placeholder={placeholder}
+        autoReplyNote={autoReplyNote}
         isAuth={isAuth}
         AuthButton={AuthButton}
 	    />

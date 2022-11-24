@@ -2,17 +2,17 @@ import { prop } from 'ramda';
 import React, { useRef, useEffect } from 'react';
 import Message from './Messages';
 
-const renderreplyNote = (message) => {
+const renderAutoReplyNote = (message, autoReplyNote) => {
   if (message) {
     if(message.author == "me"){
-      return <div style ={{color:"darkgray", fontSize:12, textAlign:"center", marginTop:20}}>--- We will reply to you as soon as possible ---</div>
+      return <div style ={{color:"darkgray", fontSize:12, textAlign:"center", marginTop:20}}>{autoReplyNote}</div>
     }
   }
 }
 
 function MessageList(props) {
   const {
-    messages, messageProfile
+    messages, messageProfile, autoReplyNote
   } = props;
   const element = useRef(null);
   const elementCurrent = prop('current', element);
@@ -26,7 +26,7 @@ function MessageList(props) {
   return (
     <div className="sc-message-list" ref={element}>
       {messages.map((message, i) => <Message message={message} messageProfile={messageProfile} key={i} />)}
-      {renderreplyNote(messages.at(-1))}
+      {renderAutoReplyNote(messages.at(-1), autoReplyNote)}
     </div>
   );
 }

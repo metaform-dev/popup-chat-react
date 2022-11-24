@@ -21,6 +21,7 @@ function ChatWindow(props) {
     pinMessage,
 	  onPinMessage,
     placeholder,
+    autoReplyNote,
     isAuth,
     AuthButton
   } = props;
@@ -52,6 +53,7 @@ function ChatWindow(props) {
           <MessageList
             messages={messageList}
             messageProfile={messageProfile}
+            autoReplyNote={autoReplyNote}
           />
 
           <UserInput
