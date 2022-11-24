@@ -1,5 +1,4 @@
 import React from 'react';
-import closeIcon from './../assets/close-icon.png';
 
 function Header(props) {
   return (
@@ -7,7 +6,7 @@ function Header(props) {
       <img className="sc-header--img" src={props.imageUrl} alt="" />
       <div className="sc-header--team-name"> {props.teamName} </div>
       <div className="sc-header--close-button" onClick={props.onClose}>
-        <img src={closeIcon} alt="" />
+        <img src={props.closeIconUrl} alt="" />
       </div>
     </div>
   );

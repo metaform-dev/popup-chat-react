@@ -29,6 +29,10 @@ function ChatWindow(props) {
     imageUrl,
   } = agentProfile;
 
+  const {
+    closeIconUrl
+  } = launcherProfile
+
   const AuthB = AuthButton;
 
   return (
@@ -36,6 +40,7 @@ function ChatWindow(props) {
       <Header
         teamName={teamName}
         imageUrl={imageUrl}
+        closeIconUrl={closeIconUrl}
         onClose={onClose}
       />
 

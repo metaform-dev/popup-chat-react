@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ChatWindow from './ChatWindow';
-import launcherIcon from '../assets/logo-no-bg.svg';
-import launcherIconActive from '../assets/close-icon.png';
 import incomingMessageSound from '../assets/sounds/notification.mp3';
 
 function LauncherNew(props) {
@@ -104,6 +102,7 @@ function LauncherNew(props) {
 		    onUserInputSubmit={onMessageWasSent}
 		    onFilesSelected={onFilesSelected}
 		    agentProfile={agentProfile}
+        launcherProfile={launcherProfile}
         messageProfile={messageProfile}
 		    isOpen={state.isOpen}
 		    onClose={onClick}
