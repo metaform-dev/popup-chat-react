@@ -21,6 +21,8 @@ function ChatWindow(props) {
     pinMessage,
 	  onPinMessage,
     placeholder,
+    pinMessagePlaceholder,
+    pinMessageButtonText,
     autoReplyNote,
     isAuth,
     AuthButton
@@ -48,7 +50,7 @@ function ChatWindow(props) {
 
       {isAuth ?
         (<>
-          {pinMessage && <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} />}
+          {pinMessage && <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} pinMessagePlaceholder={pinMessagePlaceholder} pinMessageButtonText={pinMessageButtonText}/>}
 
           <MessageList
             messages={messageList}

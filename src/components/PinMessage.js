@@ -1,9 +1,14 @@
-import { pipe, prop, propOr, length, ifElse } from 'ramda';
+import { pipe, prop, length, ifElse } from 'ramda';
 import React from 'react';
 import PropTypes from 'prop-types';
-import defaultImage from '../assets/image.png';
 
-function PinMessage({ pinMessage, onPinMessage }) {
+function PinMessage(props) {
+  const {
+    pinMessage,
+    onPinMessage,
+    pinMessagePlaceholder,
+    pinMessageButtonText
+  } = props;
 
   const ticketStatus = pinMessage.status;
   const ticketId = pinMessage._id;
@@ -25,9 +30,9 @@ function PinMessage({ pinMessage, onPinMessage }) {
       return (
         <>
           <div className='sc-pin--message--desc'>
-            <div className='sc-pin--message--title'>If you have any question, please create a new ticket.</div>
+            <div className='sc-pin--message--title'>{pinMessagePlaceholder}</div>
           </div>
-          <button style={{ float: "right", height: "40px", width: "200px", cursor: "pointer", color: "white", borderRadius: "10px", fontSize: "14px", fontWeight: 700, fontFamily: 'Ubuntu', backgroundColor: "#459BFF", border: "solid 0px" }} onClick={() => onPinMessage(pinMessage)}>+ Create Ticket</button>
+          <button style={{ float: "right", height: "40px", width: "200px", cursor: "pointer", color: "white", borderRadius: "10px", fontSize: "14px", fontWeight: 700, fontFamily: 'Ubuntu', backgroundColor: "#459BFF", border: "solid 0px" }} onClick={() => onPinMessage(pinMessage)}>{pinMessageButtonText}</button>
         </>
       )
     }
