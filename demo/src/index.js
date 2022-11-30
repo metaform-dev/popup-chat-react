@@ -14,9 +14,9 @@ function Demo() {
     newMessagesCount: 0,
     isOpen: false,
     fileUpload: false,
+    isAuth: true
   });
 
-  const authButton = () => <button>Login in</button>
 
   function onMessageWasSent(message) {
     setState(state => ({
@@ -70,6 +70,14 @@ function Demo() {
     }));
   }
 
+  function onSignout() {
+    setState(state => ({
+      ...state,
+      isAuth: false,
+      newMessagesCount: 0
+    }));
+  }
+
   return (
     <div>
       <Header />
@@ -82,6 +90,13 @@ function Demo() {
         agentProfile={{
           teamName: 'popup-chat-react',
           imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+        }}
+        launcherProfile={{
+          openIconUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
+          closeIconUrl: require("./../assets/close-icon.png").default,
+        }}
+        messageProfile={{
+          chatIconUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
         }}
         onMessageWasSent={onMessageWasSent}
         onFilesSelected={onFilesSelected}
@@ -99,8 +114,12 @@ function Demo() {
         }}
         onPinMessage={value => console.log(value)}
         placeholder='placeholder'
-        isAuth={true}
-        AuthButton={authButton}
+        pinMessagePlaceholder="pinMessagePlaceholder"
+        pinMessageButtonText="pinMessageButtonText"
+        autoReplyNote="autoReplyNote"
+        isAuth={state.isAuth}
+        onSignout={onSignout}
+        address="0x0000000000000000000000000000000000000000"
       />
 
       <img className="demo-monster-img" src={monsterImgUrl} />

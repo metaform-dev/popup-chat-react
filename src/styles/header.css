@@ -48,6 +48,18 @@
   box-sizing: border-box;
 }
 
+.sc-header--signout-button {
+  width: 60px;
+  align-self: center;
+  height: 40px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  font-size: 10px;
+}
+
 @media (max-width: 450px) {
   .sc-header {
     border-radius: 0px;

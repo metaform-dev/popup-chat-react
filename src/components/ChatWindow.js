@@ -25,7 +25,8 @@ function ChatWindow(props) {
     pinMessageButtonText,
     autoReplyNote,
     isAuth,
-    AuthButton
+    onSignout,
+    address
   } = props;
 
   const {
@@ -37,37 +38,43 @@ function ChatWindow(props) {
     closeIconUrl
   } = launcherProfile
 
-  const AuthB = AuthButton;
 
   return (
     <div className={classNames('sc-chat-window', { 'opened': isOpen }, { 'closed': !isOpen })}>
-      <Header
-        teamName={teamName}
-        imageUrl={imageUrl}
-        closeIconUrl={closeIconUrl}
-        onClose={onClose}
+      {isAuth ?
+        <Header
+          teamName="User: "
+          imageUrl={imageUrl}
+          address={address}
+          closeIconUrl={closeIconUrl}
+          onClose={onClose}
+          onSignout={onSignout}
+        />  
+      : 
+        <Header
+          teamName={teamName}
+          imageUrl={imageUrl}
+          closeIconUrl={closeIconUrl}
+          onClose={onClose}
+        />
+      }
+
+      {pinMessage && 
+        <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} pinMessagePlaceholder={pinMessagePlaceholder} pinMessageButtonText={pinMessageButtonText}/>}
+
+      <MessageList
+        messages={messageList}
+        messageProfile={messageProfile}
+        autoReplyNote={autoReplyNote}
       />
 
-      {isAuth ?
-        (<>
-          {pinMessage && <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} pinMessagePlaceholder={pinMessagePlaceholder} pinMessageButtonText={pinMessageButtonText}/>}
-
-          <MessageList
-            messages={messageList}
-            messageProfile={messageProfile}
-            autoReplyNote={autoReplyNote}
-          />
-
-          <UserInput
-            onSubmit={onUserInputSubmit}
-            onFilesSelected={onFilesSelected}
-            showEmoji={showEmoji}
-            fileUpload={fileUpload}
-            placeholder={placeholder}
-          />
-        </>) :
-        (<div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}><AuthB /></div>)
-      }
+      <UserInput
+        onSubmit={onUserInputSubmit}
+        onFilesSelected={onFilesSelected}
+        showEmoji={showEmoji}
+        fileUpload={fileUpload}
+        placeholder={placeholder}
+      />
     </div>
   );
 }

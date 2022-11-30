@@ -26,7 +26,8 @@ function LauncherNew(props) {
     pinMessageButtonText,
     autoReplyNote,
     isAuth,
-    AuthButton
+    onSignout,
+    address
   } = props;
 
   const {
@@ -118,7 +119,8 @@ function LauncherNew(props) {
         pinMessageButtonText={pinMessageButtonText}
         autoReplyNote={autoReplyNote}
         isAuth={isAuth}
-        AuthButton={AuthButton}
+        onSignout={onSignout}
+        address={address}
 	    />
     </div>
   );
