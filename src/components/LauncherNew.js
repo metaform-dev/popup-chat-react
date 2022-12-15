@@ -10,24 +10,25 @@ function LauncherNew(props) {
     isOpen,
     onClick,
     mute,
-	  showEmoji,
-	  agentProfile,
+    showEmoji,
+    agentProfile,
     launcherProfile,
     messageProfile,
-	  messageList,
-	  newMessagesCount,
-	  onMessageWasSent,
-	  onFilesSelected,
+    messageList,
+    newMessagesCount,
+    onMessageWasSent,
+    onFilesSelected,
     fileUpload,
     pinMessage,
-	  onPinMessage,
+    onPinMessage,
     placeholder,
     pinMessagePlaceholder,
     pinMessageButtonText,
     autoReplyNote,
     isAuth,
     onSignout,
-    address
+    address,
+    pinLeftButton
   } = props;
 
   const {
@@ -121,6 +122,7 @@ function LauncherNew(props) {
         isAuth={isAuth}
         onSignout={onSignout}
         address={address}
+        pinLeftButton={pinLeftButton}
 	    />
     </div>
   );
