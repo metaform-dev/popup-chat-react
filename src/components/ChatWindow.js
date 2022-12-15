@@ -26,7 +26,8 @@ function ChatWindow(props) {
     autoReplyNote,
     isAuth,
     onSignout,
-    address
+    address,
+    pinLeftButton
   } = props;
 
   const {
@@ -60,7 +61,7 @@ function ChatWindow(props) {
       }
 
       {pinMessage && 
-        <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} pinMessagePlaceholder={pinMessagePlaceholder} pinMessageButtonText={pinMessageButtonText}/>}
+       <PinMessage pinMessage={pinMessage} onPinMessage={onPinMessage} pinMessagePlaceholder={pinMessagePlaceholder} pinMessageButtonText={pinMessageButtonText} pinLeftButton={pinLeftButton}/>}
 
       <MessageList
         messages={messageList}

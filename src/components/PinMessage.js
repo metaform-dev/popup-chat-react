@@ -7,7 +7,8 @@ function PinMessage(props) {
     pinMessage,
     onPinMessage,
     pinMessagePlaceholder,
-    pinMessageButtonText
+    pinMessageButtonText,
+    pinLeftButton
   } = props;
 
   const ticketStatus = pinMessage.status;
@@ -17,23 +18,25 @@ function PinMessage(props) {
     if (ticketStatus == "New" || ticketStatus == "Ongoing") {
       // show ticket
       return (
-        <>
+        <div style={{display:"flex", width:"100%", justifyContent:"space-between"}}>
+          {pinLeftButton? pinLeftButton:""}
           <div className='sc-pin--message--desc'>
             <div className='sc-pin--message--title'>{`Ticket - ${ticketId}`}</div>
           </div>
-          <button style={{ float: "right", height: "40px", width: "120px", color: "white", borderRadius: "10px", fontSize: "14px", fontWeight: 700, fontFamily: 'Ubuntu', backgroundColor:ticketStatus == "New"?"#096191":"#c46fb2", border: "solid 0px" }}>{ticketStatus}</button>
-        </>
+          <button style={{ float: "right", height: "40px", maxWidth: "20%", cursor: "pointer", color: "white", borderRadius: "10px", fontSize: "14px", fontWeight: 700, fontFamily: 'Ubuntu', backgroundColor: "#459BFF", border: "solid 0px" }} onClick={() => onPinMessage(pinMessage)}>{pinMessageButtonText}</button>
+        </div>
       )
 
     } else {
       // create
       return (
-        <>
+        <div style={{display:"flex", width:"100%", justifyContent:"space-between"}}>
+          {pinLeftButton? pinLeftButton:""}
           <div className='sc-pin--message--desc'>
             <div className='sc-pin--message--title'>{pinMessagePlaceholder}</div>
           </div>
-          <button style={{ float: "right", height: "40px", width: "200px", cursor: "pointer", color: "white", borderRadius: "10px", fontSize: "14px", fontWeight: 700, fontFamily: 'Ubuntu', backgroundColor: "#459BFF", border: "solid 0px" }} onClick={() => onPinMessage(pinMessage)}>{pinMessageButtonText}</button>
-        </>
+          <button style={{ float: "right", height: "40px", maxWidth: "20%", cursor: "pointer", color: "white", borderRadius: "10px", fontSize: "14px", fontWeight: 700, fontFamily: 'Ubuntu', backgroundColor: "#459BFF", border: "solid 0px" }} onClick={() => onPinMessage(pinMessage)}>{pinMessageButtonText}</button>
+        </div>
       )
     }
   }
