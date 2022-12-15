@@ -17,6 +17,8 @@
 .sc-pin--message--desc {
   padding: 10px;
   font-size: 12px;
+  max-width: 60%;
+  overflow: scroll;
 }
 
 .sc-pin--message--title {
